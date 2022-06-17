@@ -72,4 +72,20 @@ class ProductController extends Controller
 
         return redirect()->route('admin.product.index');
     }
+
+
+    public function restore(Product $product)
+    {
+        Product::withTrashed()->find($product->id)->restore();
+  
+        return back();
+    }  
+  
+   
+    public function restoreAll()
+    {
+        Product::onlyTrashed()->restore();
+  
+        return back();
+    }
 }
