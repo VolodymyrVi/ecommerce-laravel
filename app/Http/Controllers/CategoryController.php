@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $data = $request->validated();
         Category::firstOrCreate($data);
 
-        return redirect()->route('category.index');
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category.show', compact('category'));
+        return view('admin.category.show', compact('category'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $vategory)
     {
-        return view('category.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         $data = $request->validated();
         $category->update($data);
 
-        return view('category.show', compact('category'));
+        return view('admin.category.show', compact('category'));
     }
 
     /**
@@ -91,6 +91,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('category.index');
+        return redirect()->route('admin.category.index');
     }
 }
