@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,12 @@ Route::group(['prefix' => 'admin/category'], function(){
     Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
 });
 
+Route::group(['prefix' => 'admin/products'], function(){
+    Route::get('/', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::get('create', [ProductController::class, 'create'])->name('admin.products.create');
+    Route::post('/', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::get('/{products}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::get('/{products}', [ProductController::class, 'show'])->name('admin.products.show');
+    Route::patch('/{products}', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::delete('/{products}', [ProductController::class, 'destroy'])->name('admin.products.delete');
+});
