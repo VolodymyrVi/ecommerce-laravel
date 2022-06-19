@@ -36,7 +36,7 @@
         <a href="{{ route('admin.main.index') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{{ route('frontend.main.index') }}" class="nav-link">Магазин</a>
       </li>
     </ul>
 
