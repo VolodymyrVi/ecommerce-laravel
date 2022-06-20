@@ -38,10 +38,13 @@ class CreateProductsTable extends Migration
             $table->boolean('is_hit')->default(false);
             $table->boolean('is_recomended')->default(false);
 
+            $table->softDeletes();
 
+            
             $table->foreignId('user_id')->nullable()->index()->constrained('users');
             $table->foreignId('category_id')->nullable()->index()->constrained('categories');
-
+            
+            
 
             $table->timestamps();
         });
