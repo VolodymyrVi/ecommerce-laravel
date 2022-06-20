@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,6 @@ Route::group(['prefix' => 'admin/products'], function(){
     Route::patch('/{products}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/{products}', [ProductController::class, 'destroy'])->name('admin.products.delete');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
